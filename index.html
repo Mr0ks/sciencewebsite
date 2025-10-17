@@ -5,82 +5,156 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Life Before Water</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
-  html,body{
-    margin:0;padding:0;scroll-behavior:smooth;
-    font-family:'Poppins',sans-serif;background:#000;color:#fff;overflow-x:hidden;
+  @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700;900&display=swap');
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
   }
 
   /* Animated gradient background */
-  body::before{
-    content:"";position:fixed;top:0;left:0;width:200%;height:200%;
-    background:linear-gradient(45deg,#0ff,#38bdf8,#a855f7,#ec4899,#f59e0b);
-    background-size:400% 400%;animation:move 18s infinite alternate ease-in-out;
-    z-index:-2;
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 200%; height: 200%;
+    background: linear-gradient(45deg, #0ff, #38bdf8, #a855f7, #ec4899, #f59e0b);
+    background-size: 400% 400%;
+    z-index: -2;
+    animation: move 18s infinite alternate ease-in-out;
   }
-  @keyframes move{0%{transform:translate(-20%,-20%);}100%{transform:translate(20%,20%);}}
+
+  @keyframes move {
+    0% { transform: translate(-20%, -20%); }
+    100% { transform: translate(20%, 20%); }
+  }
 
   /* Floating particles canvas */
-  canvas{
-    position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;
+  canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
   }
 
-  /* HEADER (fixed and always visible) */
-  header{
-    position:fixed;top:0;left:0;width:100%;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:20px 60px;
-    background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);
-    z-index:9999;box-sizing:border-box;
-  }
-  .logo{font-weight:900;font-size:1.6rem;}
-  nav ul{display:flex;list-style:none;gap:30px;margin:0;padding:0;}
-  nav a{text-decoration:none;color:#fff;position:relative;}
-  nav a::after{
-    content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:#38bdf8;
-    transition:.3s;
-  }
-  nav a:hover::after{width:100%;}
-
-  /* SECTIONS */
-  section{
-    min-height:100vh;display:flex;flex-direction:column;
-    justify-content:center;align-items:center;text-align:center;padding:0 20px;
+  /* Header */
+  header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    box-sizing: border-box;
   }
 
-  /* Hero Section */
-  #home h1{
-    font-size:clamp(3rem,12vw,8rem);
-    font-weight:900;
-    background:linear-gradient(90deg,#38bdf8,#a855f7);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    margin:0;
-    transition:transform 0.3s,opacity 0.3s;
-  }
-  #home p{
-    font-size:1.3rem;max-width:800px;color:#e5e5e5;margin-top:20px;
+  .logo {
+    font-weight: 900;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
   }
 
-  /* Scroll Down Arrow */
-  .scroll-down{
-    position:absolute;bottom:30px;font-size:2rem;
-    animation:bounce 1.6s infinite;color:#38bdf8;
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
   }
-  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
 
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    transition: 0.3s;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #38bdf8;
+    transition: 0.3s;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+
+  /* Scroll container for sticky text */
+  .scroll-container {
+    position: relative;
+    height: 200vh;
+  }
+
+  .sticky-hero {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .sticky-hero h1 {
+    font-size: clamp(3rem, 14vw, 10rem);
+    font-weight: 900;
+    background: linear-gradient(90deg, #38bdf8, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .sticky-hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    color: #e5e5e5;
+  }
 
   /* Other sections */
-  #about{background:rgba(0,0,0,0.5);}
-  #challenges{background:rgba(15,20,30,0.5);}
-  #solutions{background:rgba(20,10,30,0.5);}
-  #resources{background:rgba(10,10,20,0.6);}
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
 
-  h2{font-size:2.5rem;background:linear-gradient(90deg,#38bdf8,#a855f7);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;}
-  p{max-width:800px;font-size:1.1rem;color:#e5e5e5;}
+  #about { background: rgba(0,0,0,0.5); }
+  #challenges { background: rgba(15,20,30,0.5); }
+  #solutions { background: rgba(20,10,30,0.5); }
+  #resources { background: rgba(10,10,20,0.6); }
 
-  footer{background:rgba(0,0,0,0.8);text-align:center;padding:20px;font-size:.9rem;}
+  h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #38bdf8, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  footer {
+    background: rgba(0,0,0,0.8);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
 </style>
 </head>
 <body>
@@ -100,11 +174,13 @@
 
 <canvas id="particles"></canvas>
 
-<section id="home">
-  <h1 id="heroTitle">LIFE BEFORE WATER</h1>
-  <p>Imagine a world where rivers run dry and oceans fade — “Life Before Water” reminds us how fragile life would be without it.</p>
-  <div class="scroll-down">↓</div>
-</section>
+<!-- Sticky scroll-follow hero -->
+<div class="scroll-container" id="home">
+  <div class="sticky-hero">
+    <h1 id="heroTitle">LIFE BEFORE WATER</h1>
+    <p>Imagine a world where rivers run dry and oceans fade — “Life Before Water” reminds us how fragile life would be without it.</p>
+  </div>
+</div>
 
 <section id="about">
   <h2>ABOUT</h2>
@@ -133,15 +209,18 @@
 <footer>© 2025 Life Before Water — Designed to Inspire Awareness and Action</footer>
 
 <script>
-/* Keep header visible - no changes needed */
-
-/* Animate hero text shrinking on scroll */
+/* Shrink and fade hero text on scroll-follow */
 const hero = document.getElementById("heroTitle");
-window.addEventListener("scroll",()=>{
+const container = document.querySelector(".scroll-container");
+
+window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-  const max = window.innerHeight;
-  const scale = Math.max(0.6, 1 - scrollY / (max*0.7));
-  const opacity = Math.max(0, 1 - scrollY / (max*0.5));
+  const containerTop = container.offsetTop;
+  const containerHeight = container.offsetHeight;
+  const progress = Math.min(1, Math.max(0, (scrollY - containerTop) / (containerHeight - window.innerHeight)));
+
+  const scale = 1 - progress * 0.5; // Shrinks to 50%
+  const opacity = 1 - progress * 1.2; // fades out
   hero.style.transform = `scale(${scale})`;
   hero.style.opacity = opacity;
 });
@@ -167,9 +246,12 @@ for(let i=0;i<80;i++){
 function animate(){
   ctx.clearRect(0,0,innerWidth,innerHeight);
   for(const p of particles){
-    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=p.color;ctx.fill();
-    p.x+=p.dx;p.y+=p.dy;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.color;
+    ctx.fill();
+    p.x+=p.dx;
+    p.y+=p.dy;
     if(p.x<0||p.x>innerWidth)p.dx*=-1;
     if(p.y<0||p.y>innerHeight)p.dy*=-1;
   }
