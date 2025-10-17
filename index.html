@@ -3,518 +3,123 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SDG 6 — Clean Water & Sanitation</title>
-  <meta name="description" content="One-page site about Sustainable Development Goal 6: Clean Water and Sanitation." />
+  <title>SDG 6 — Life Before Water</title>
+  <meta name="description" content="One-page site about Sustainable Development Goal 6: Life Before Water." />
   <style>
-    :root{
-      --bg: #0b1215;
-      --panel:#0f1a1f;
-      --text:#e7f5ff;
-      --muted:#a9c6d6;
-      --accent:#38bdf8;
-      --accent-2:#22d3ee;
-      --ok:#34d399;
-      --warn:#fbbf24;
-      --danger:#fb7185;
-      --ring: 0 0 0 3px rgba(56,189,248,.35);
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --maxw: 1100px;
-    }
-    *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font: 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-      background: radial-gradient(1200px 800px at 70% -10%, #14212a 0%, #0b1215 50%, #0b1215 100%);
-      color:var(--text);
-    }
-
-    /* Skip link */
-    .skip-link{
-      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip-link:focus{left:16px; top:16px; width:auto; height:auto; padding:.6rem .9rem; background:#0ea5e9; color:#001018; border-radius:10px; z-index:10000}
-
-    /* Header / nav */
-    header{
-      position:sticky; top:0; z-index:999;
-      backdrop-filter:saturate(140%) blur(10px);
-      background: linear-gradient(180deg, rgba(6,10,12,.85), rgba(6,10,12,.65));
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .nav{
-      max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; gap:10px;
-      padding:10px 18px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:12px;
-      text-decoration:none; color:var(--text);
-    }
-    .brand:hover{background:rgba(255,255,255,.05)}
-    .brand svg{width:28px; height:28px}
-    .brand b{font-weight:800; letter-spacing:.3px}
-    nav ul{display:flex; gap:6px; margin:0 0 0 auto; padding:0; list-style:none; flex-wrap:wrap}
-    nav a{
-      display:inline-block; padding:10px 12px; border-radius:12px; color:var(--muted); text-decoration:none; font-weight:600; letter-spacing:.2px;
-    }
-    nav a:hover{color:var(--text); background:rgba(255,255,255,.06)}
-    nav a.active{color:#001018; background:linear-gradient(90deg,var(--accent),var(--accent-2))}
-    .cta{
-      margin-left:8px; border:0; padding:10px 14px; font-weight:700; border-radius:12px; cursor:pointer;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#001018; box-shadow:var(--shadow);
-    }
-    .cta:focus{outline:none; box-shadow:var(--shadow), var(--ring)}
-
-    /* Sections */
-    section{
-      padding:80px 18px;
-    }
-    .container{max-width:var(--maxw); margin:0 auto}
-    .panel{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-    .hero{
-      padding:120px 18px 80px;
-      background:
-        radial-gradient(700px 500px at 20% -20%, rgba(56,189,248,.20), transparent 60%),
-        radial-gradient(700px 500px at 80% -10%, rgba(34,211,238,.18), transparent 60%);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .hero h1{
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height:1.15;
-      margin:0 0 14px;
-      letter-spacing:.3px;
-      text-wrap: balance;
-    }
-    .hero p{max-width:800px; color:var(--muted); margin:0 0 22px}
-    .hero .stats{
-      display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:12px; margin-top:22px;
-    }
-    .stat{
-      padding:16px; border-radius:16px; background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.08);
-    }
-    .stat b{font-size:1.4rem}
-    .grid{
-      display:grid; gap:16px; grid-template-columns: repeat(12, 1fr);
-    }
-    .col-4{grid-column: span 12}
-    .col-6{grid-column: span 12}
-    .col-8{grid-column: span 12}
-    @media (min-width: 820px){
-      .col-4{grid-column: span 4}
-      .col-6{grid-column: span 6}
-      .col-8{grid-column: span 8}
-    }
-
-    h2{font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin:0 0 14px}
-    h3{margin:0 0 8px}
-    p{margin:0 0 10px}
-
-    .badge{
-      display:inline-block; padding:6px 10px; border-radius:999px; font-weight:700; font-size:.8rem; letter-spacing:.35px;
-      color:#001018; background:linear-gradient(90deg,var(--accent),var(--accent-2));
-    }
-
-    .list{
-      display:grid; gap:10px;
-    }
-    .list li{
-      list-style:none; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.035)
-    }
-
-    .cards{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .card{padding:18px; border-radius:16px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04)}
-    .card .kpi{font-size:2rem; font-weight:800}
-    .tag{display:inline-block; padding:6px 10px; border-radius:999px; font-weight:700; font-size:.75rem; background:rgba(255,255,255,.06); color:var(--muted); margin-right:6px}
-
-    .resources a{
-      display:block; text-decoration:none; color:var(--text);
-      padding:14px 16px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.035); margin-bottom:10px;
-    }
-    .resources a:hover{background:rgba(255,255,255,.06)}
-    .resources small{color:var(--muted)}
-
-    .note{
-      padding:14px 16px; border-left:4px solid var(--accent); background:rgba(56,189,248,.08); border-radius:12px;
-    }
-
-    footer{
-      padding:40px 18px; border-top:1px solid rgba(255,255,255,.08); color:var(--muted);
-      background:linear-gradient(180deg, rgba(6,10,12,.65), rgba(6,10,12,.9));
-    }
-    .to-top{
-      position:fixed; right:16px; bottom:16px; border:0; padding:12px 14px; border-radius:14px; cursor:pointer;
-      background:rgba(255,255,255,.08); color:var(--text); display:none;
-    }
-    .to-top.show{display:inline-flex}
-    .to-top:focus{outline:none; box-shadow:var(--ring)}
-    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:.9em; background:rgba(255,255,255,.08); padding:2px 6px; border-radius:6px}
-
-    /* Focus ring for interactive elements */
-    a:focus, button:focus{outline:none; box-shadow: var(--ring)}
+    body{margin:0;font-family:sans-serif;background:#0b1215;color:#e7f5ff}
+    header{position:sticky;top:0;background:#0f1a1f;padding:10px 20px;z-index:10}
+    nav ul{margin:0;padding:0;display:flex;list-style:none;gap:10px;flex-wrap:wrap}
+    nav a{color:#a9c6d6;text-decoration:none;padding:8px 12px;border-radius:8px}
+    nav a:hover,nav a.active{background:#38bdf8;color:#001018}
+    section{padding:80px 20px;max-width:1000px;margin:auto}
+    h1,h2{color:#38bdf8}
+    .hero{padding:120px 20px 80px;background:radial-gradient(circle at top,#14212a,#0b1215)}
+    footer{background:#0f1a1f;color:#a9c6d6;padding:40px 20px;text-align:center}
+    .card{background:rgba(255,255,255,.05);padding:20px;border-radius:12px;margin-bottom:16px}
   </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
-  <!-- Header / Navigation -->
   <header>
-    <div class="nav">
-      <a class="brand" href="#home" aria-label="Go to top">
-        <!-- Water drop logo -->
-        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#38bdf8"/>
-              <stop offset="1" stop-color="#22d3ee"/>
-            </linearGradient>
-          </defs>
-          <path fill="url(#g)" d="M32 4C22 18 12 28 12 40a20 20 0 1040 0C52 28 42 18 32 4z"/>
-        </svg>
-        <b>SDG&nbsp;6</b>
-      </a>
-      <nav aria-label="Primary">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#challenges">Challenges</a></li>
-          <li><a href="#solutions">Solutions</a></li>
-          <li><a href="#cases">Case Studies</a></li>
-          <li><a href="#act">Take Action</a></li>
-          <li><a href="#resources">Resources</a></li>
-        </ul>
-      </nav>
-      <button class="cta" onclick="document.getElementById('act').scrollIntoView({behavior:'smooth'})" aria-label="Jump to Take Action">Get Involved</button>
-    </div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#cases">Case Studies</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero -->
   <section id="home" class="hero">
-    <div class="container">
-      <span class="badge">Sustainable Development Goal 6</span>
-      <h1>Clean Water &amp; Sanitation</h1>
-      <p>
-        Ensuring availability and sustainable management of water and sanitation for all. Safe water is a human right
-        and foundational for health, education, gender equality, ecosystems, and resilient economies.
-      </p>
-      <div class="stats">
-        <div class="stat">
-          <div class="kpi"><b>2.2B</b></div>
-          <div>people lack safely managed drinking water.</div>
-        </div>
-        <div class="stat">
-          <div class="kpi"><b>3.5B</b></div>
-          <div>lack safely managed sanitation services.</div>
-        </div>
-        <div class="stat">
-          <div class="kpi"><b>80%</b></div>
-          <div>wastewater is released untreated into the environment in many regions.</div>
-        </div>
-      </div>
+    <h1>Life Before Water</h1>
+    <p>
+      Imagine a world where water is scarce, rivers are dry, and life struggles to exist.
+      “Life Before Water” highlights the importance of water as the foundation of all living systems,
+      reminding us how fragile life would be without it.
+    </p>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Water sustains every organism on Earth. This section explores what happens when we
+      imagine life before water — barren landscapes, lifeless ecosystems, and the absence of growth.
+      Understanding this helps us value and protect water resources for all living beings.
+    </p>
+  </section>
+
+  <section id="challenges">
+    <h2>Challenges</h2>
+    <div class="card">
+      <h3>Scarcity</h3>
+      <p>Regions face drought and depletion of groundwater, threatening human and ecological survival.</p>
+    </div>
+    <div class="card">
+      <h3>Pollution</h3>
+      <p>Contamination from industries, waste, and chemicals makes clean water harder to access.</p>
+    </div>
+    <div class="card">
+      <h3>Inequality</h3>
+      <p>Billions still lack access to safe water and sanitation, deepening global disparities.</p>
     </div>
   </section>
 
-  <main id="main">
-    <!-- About -->
-    <section id="about">
-      <div class="container grid">
-        <div class="col-6">
-          <h2>What is SDG&nbsp;6?</h2>
-          <p>
-            SDG 6 aims to guarantee universal and equitable access to safe and affordable drinking water, adequate and equitable sanitation and hygiene, and to improve water quality and use efficiency while protecting ecosystems.
-          </p>
-          <div class="note" role="note" aria-label="Key targets">
-            <h3 style="margin-top:0">Key Targets</h3>
-            <ul class="list" aria-label="SDG 6 key targets list">
-              <li><b>6.1</b> Safe and affordable drinking water for all.</li>
-              <li><b>6.2</b> Access to sanitation and hygiene; end open defecation.</li>
-              <li><b>6.3</b> Improve water quality and wastewater treatment.</li>
-              <li><b>6.4</b> Increase water-use efficiency and sustainable withdrawals.</li>
-              <li><b>6.5</b> Integrated water resources management (IWRM).</li>
-              <li><b>6.6</b> Protect and restore water-related ecosystems.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="panel" style="padding:18px">
-            <h3>Why it matters</h3>
-            <p>
-              Water scarcity, pollution, and inadequate sanitation drive disease, reduce school attendance, and limit economic opportunity.
-              Investing in water and sanitation yields high returns in health and productivity.
-            </p>
-            <div class="cards" style="margin-top:12px">
-              <div class="card">
-                <div class="kpi">4×</div>
-                <p>Economic return for every $1 invested in sanitation (estimates vary by context).</p>
-              </div>
-              <div class="card">
-                <div class="kpi">200M+</div>
-                <p>Hours spent daily—mostly by women and girls—collecting water in some regions.</p>
-              </div>
-              <div class="card">
-                <div class="kpi">Zero</div>
-                <p>Goal for open defecation worldwide via inclusive, safe WASH services.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="solutions">
+    <h2>Solutions</h2>
+    <p>
+      To avoid returning to a “life before water,” we must preserve and restore our water systems.
+      Conservation, innovation, and education are key to sustainable management.
+    </p>
+    <ul>
+      <li>Protect rivers, lakes, and groundwater.</li>
+      <li>Use water efficiently in homes, farms, and industries.</li>
+      <li>Adopt renewable energy and nature-based water treatment.</li>
+      <li>Reduce pollution and strengthen global cooperation.</li>
+    </ul>
+  </section>
 
-    <!-- Challenges -->
-    <section id="challenges">
-      <div class="container">
-        <h2>Challenges</h2>
-        <div class="grid">
-          <div class="col-4 card">
-            <h3>Water Quality</h3>
-            <p>Untreated wastewater and agricultural runoff contaminate rivers, lakes, and aquifers.</p>
-            <span class="tag">Pollution</span><span class="tag">Wastewater</span>
-          </div>
-          <div class="col-4 card">
-            <h3>Scarcity &amp; Drought</h3>
-            <p>Climate change intensifies droughts; over-extraction lowers groundwater and damages ecosystems.</p>
-            <span class="tag">Climate</span><span class="tag">Overuse</span>
-          </div>
-          <div class="col-4 card">
-            <h3>Equity &amp; Access</h3>
-            <p>Rural, informal, and marginalized communities face the largest service gaps.</p>
-            <span class="tag">Inclusion</span><span class="tag">Affordability</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="cases">
+    <h2>Case Studies</h2>
+    <div class="card">
+      <h3>Wetland Restoration</h3>
+      <p>Communities restored natural wetlands to filter water and revive biodiversity.</p>
+    </div>
+    <div class="card">
+      <h3>Urban Water Recycling</h3>
+      <p>Cities reuse treated wastewater for irrigation and green spaces, reducing scarcity.</p>
+    </div>
+  </section>
 
-    <!-- Solutions -->
-    <section id="solutions">
-      <div class="container">
-        <h2>Solutions</h2>
-        <div class="grid">
-          <div class="col-8 panel" style="padding:18px">
-            <h3>Proven Approaches</h3>
-            <ul class="list">
-              <li><b>Protect sources:</b> Watershed restoration, buffer zones, pollution control.</li>
-              <li><b>Treat water:</b> Point-of-use filters, chlorination, UV, and robust utility treatment.</li>
-              <li><b>Safely manage sanitation:</b> Toilets, fecal sludge management, sewered and non-sewered systems.</li>
-              <li><b>Reuse &amp; efficiency:</b> Leak reduction, smart metering, water-efficient irrigation and industry.</li>
-              <li><b>Governance:</b> Tariff reforms, pro-poor subsidies, IWRM with community participation.</li>
-            </ul>
-          </div>
-          <div class="col-4">
-            <div class="card">
-              <h3>Quick Wins</h3>
-              <ul>
-                <li>Handwashing stations in schools and clinics.</li>
-                <li>Fix leaks; install low-flow fixtures.</li>
-                <li>Separate greywater where feasible.</li>
-                <li>Protect springs and wells.</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Innovation</h3>
-              <p>Decentralized treatment, membrane bioreactors, nature-based solutions (constructed wetlands), and IoT monitoring.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Case Studies -->
-    <section id="cases">
-      <div class="container">
-        <h2>Case Studies</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Constructed Wetlands</h3>
-            <p>Communities treating wastewater with wetlands see improved water quality and biodiversity.</p>
-            <p><span class="tag">Nature-based</span> <span class="tag">Low OPEX</span></p>
-          </article>
-          <article class="card">
-            <h3>City Leak Reduction</h3>
-            <p>Utilities cutting non-revenue water by 20–40% free up supply and reduce energy use.</p>
-            <p><span class="tag">Efficiency</span> <span class="tag">Utility</span></p>
-          </article>
-          <article class="card">
-            <h3>Rural Safe Storage</h3>
-            <p>Household chlorination and safe storage slash waterborne disease in rural areas.</p>
-            <p><span class="tag">Health</span> <span class="tag">Community</span></p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Take Action -->
-    <section id="act">
-      <div class="container grid">
-        <div class="col-6">
-          <h2>How You Can Help</h2>
-          <ol class="list" role="list">
-            <li><b>Conserve at home:</b> Fix leaks, take shorter showers, choose efficient appliances.</li>
-            <li><b>Keep water clean:</b> Dispose of oil, meds, and chemicals properly.</li>
-            <li><b>Support WASH orgs:</b> Donate or volunteer with water &amp; sanitation groups.</li>
-            <li><b>Advocate:</b> Ask local leaders to invest in resilient water infrastructure.</li>
-            <li><b>Learn &amp; share:</b> Teach others about SDG&nbsp;6 and hygiene.</li>
-          </ol>
-        </div>
-        <div class="col-6">
-          <div class="panel" style="padding:18px">
-            <h3>Join the Movement</h3>
-            <form class="list" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.'); this.reset()">
-              <label>
-                <span>Name</span><br>
-                <input required aria-label="Your name" name="name" placeholder="Your name" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f1a1f;color:var(--text)">
-              </label>
-              <label>
-                <span>Email</span><br>
-                <input type="email" required aria-label="Your email" name="email" placeholder="you@example.com" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f1a1f;color:var(--text)">
-              </label>
-              <label>
-                <span>How you’d like to help</span><br>
-                <select aria-label="How you'd like to help" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f1a1f;color:var(--text)">
-                  <option>Volunteer</option>
-                  <option>Donate</option>
-                  <option>Advocate</option>
-                  <option>Learn more</option>
-                </select>
-              </label>
-              <button class="cta" type="submit">Submit</button>
-              <p style="color:var(--muted);margin:6px 0 0">We respect your privacy.</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resources -->
-    <section id="resources">
-      <div class="container">
-        <h2>Resources</h2>
-        <div class="resources" aria-label="Helpful links">
-          <a href="https://sdgs.un.org/goals/goal6" target="_blank" rel="noopener">
-            UN — SDG 6 Overview<br><small>Targets, indicators, and global progress</small>
-          </a>
-          <a href="https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health" target="_blank" rel="noopener">
-            WHO — Water, Sanitation &amp; Health<br><small>Evidence, guidance, and tools</small>
-          </a>
-          <a href="https://www.unicef.org/wash" target="_blank" rel="noopener">
-            UNICEF — WASH<br><small>Children, schools, and community WASH programs</small>
-          </a>
-        </div>
-        <p class="note" style="margin-top:12px">Tip: Press <span class="kbd">/</span> to focus the search below and jump to sections quickly.</p>
-        <div style="margin-top:12px" class="panel">
-          <form role="search" aria-label="On-page section search" style="padding:14px 16px">
-            <input id="search" placeholder="Search sections… (e.g., sanitation, wetlands, leak)" aria-label="Search sections" style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0f1a1f;color:var(--text)">
-          </form>
-          <div id="searchResults" style="padding:0 16px 16px"></div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <section id="resources">
+    <h2>Resources</h2>
+    <ul>
+      <li><a href="https://sdgs.un.org/goals/goal6" target="_blank">UN SDG 6 Overview</a></li>
+      <li><a href="https://www.unicef.org/wash" target="_blank">UNICEF — WASH Initiatives</a></li>
+      <li><a href="https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health" target="_blank">WHO Water and Health</a></li>
+    </ul>
+  </section>
 
   <footer>
-    <div class="container">
-      <p><strong>SDG&nbsp;6 — Clean Water &amp; Sanitation</strong></p>
-      <p>Made with 💧 for a healthier, more equitable world. This is a student/demo site.</p>
-    </div>
+    <p><strong>Life Before Water</strong> — Awareness for Sustainable Water Use</p>
   </footer>
 
-  <button class="to-top" id="toTop" aria-label="Back to top">↑ Top</button>
-
   <script>
-    // Smooth-scroll for internal anchor links (for older browsers)
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href');
-        if (id.length > 1){
-          const el = document.querySelector(id);
-          if (el){
-            e.preventDefault();
-            el.scrollIntoView({behavior:'smooth', block:'start'});
-            history.pushState(null,'',id);
-          }
+    // Smooth scroll and active nav highlighting
+    const sections=[...document.querySelectorAll('section')];
+    const links=[...document.querySelectorAll('nav a')];
+    window.addEventListener('scroll',()=>{
+      let fromTop=window.scrollY+200;
+      sections.forEach(sec=>{
+        if(sec.offsetTop<=fromTop && sec.offsetTop+sec.offsetHeight>fromTop){
+          links.forEach(a=>a.classList.remove('active'));
+          const link=document.querySelector('a[href="#'+sec.id+'"]');
+          if(link)link.classList.add('active');
         }
       });
     });
-
-    // Active link highlighting with IntersectionObserver
-    const sections = [...document.querySelectorAll('main section, #home')];
-    const navLinks = [...document.querySelectorAll('header nav a')];
-    const map = new Map(sections.map(s => [s.id, document.querySelector('header nav a[href="#'+s.id+'"]')]));
-    const io = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          const id = entry.target.id;
-          navLinks.forEach(l=>l.classList.remove('active'));
-          const link = map.get(id);
-          if(link){ link.classList.add('active'); }
-        }
-      });
-    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
-    sections.forEach(s=>io.observe(s));
-
-    // Back-to-top button
-    const toTop = document.getElementById('toTop');
-    const toggleTop = () => {
-      if (window.scrollY > 600) toTop.classList.add('show'); else toTop.classList.remove('show');
-    };
-    window.addEventListener('scroll', toggleTop);
-    toTop.addEventListener('click', ()=>document.getElementById('home').scrollIntoView({behavior:'smooth'}));
-
-    // Keyboard: "/" focuses search
-    window.addEventListener('keydown', (e)=>{
-      if(e.key === '/' && !/input|textarea|select/i.test(document.activeElement.tagName)){
-        e.preventDefault();
-        const search = document.getElementById('search');
-        if(search){ search.focus(); search.select(); }
-      }
-    });
-
-    // Tiny on-page search that lists matching section headings + snippets
-    const search = document.getElementById('search');
-    const results = document.getElementById('searchResults');
-    function indexSections(){
-      return [...document.querySelectorAll('section')].map(sec=>{
-        const title = sec.querySelector('h2,h3')?.textContent?.trim() || sec.id;
-        const text = sec.textContent.replace(/\s+/g,' ').trim();
-        return { id: sec.id, title, text };
-      });
-    }
-    const index = indexSections();
-    function doSearch(q){
-      results.innerHTML = '';
-      if(!q || q.trim().length < 2){ return; }
-      const terms = q.toLowerCase().split(/\s+/);
-      const hits = index.map(item=>{
-        const pos = terms.map(t=> item.text.toLowerCase().indexOf(t)).filter(p=>p>=0)[0] ?? -1;
-        let score = 0;
-        terms.forEach(t=>{
-          const re = new RegExp("\\b"+t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')+"\\b","gi");
-          const m = item.text.match(re);
-          if(m) score += m.length;
-        });
-        return { ...item, pos, score };
-      }).filter(h=>h.score>0).sort((a,b)=>b.score-a.score).slice(0,6);
-
-      hits.forEach(h=>{
-        const ctxStart = Math.max(0, h.pos-60);
-        const ctxEnd = Math.min(h.text.length, (h.pos>0?h.pos:0)+120);
-        const snippet = h.text.slice(ctxStart, ctxEnd) + (ctxEnd < h.text.length ? '…' : '');
-        const div = document.createElement('div');
-        div.style.padding = '10px 0';
-        div.innerHTML = `
-          <a href="#${h.id}" style="font-weight:800">${h.title}</a>
-          <div style="color: var(--muted); font-size:.95rem">${snippet}</div>
-        `;
-        results.appendChild(div);
-      });
-    }
-    if(search){
-      search.addEventListener('input', e=>doSearch(e.target.value));
-    }
   </script>
 </body>
 </html>
