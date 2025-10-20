@@ -5,37 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Life Before Water</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700;900&display=swap');
-
   html, body {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #fff;
     color: #000;
-    overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
-  /* Sticky navigation bar */
+  /* STICKY NAVIGATION BAR */
   nav {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    z-index: 1000;
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
   nav ul {
     list-style: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 40px;
     margin: 0;
-    padding: 0;
+    padding: 15px 0;
   }
 
   nav a {
@@ -43,49 +40,54 @@
     color: #000;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: 0.3s;
+    transition: color 0.3s;
   }
 
   nav a:hover {
     color: #38bdf8;
   }
 
-  /* Hero section */
+  /* HERO SECTION */
   header {
     position: relative;
     height: 100vh;
+    background-image: url('background.jpg'); /* ✅ Corrected file extension */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Vertical center */
     align-items: center; /* Horizontal center */
     text-align: center;
-    background: url('background.jpeg') center center / cover no-repeat;
-    color: #000;
   }
 
   header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255,255,255,0.3); /* Light overlay to make text readable */
+    background: rgba(255, 255, 255, 0.3); /* soft overlay for readability */
+    z-index: 0;
+  }
+
+  header h1, header p {
+    position: relative;
+    z-index: 1;
   }
 
   header h1 {
-    position: relative;
     font-size: clamp(3rem, 12vw, 8rem);
     font-weight: 900;
-    z-index: 1;
+    color: #000;
+    margin: 0;
   }
 
   header p {
-    position: relative;
     font-size: 1.3rem;
     max-width: 700px;
     margin-top: 10px;
-    z-index: 1;
   }
 
-  /* Content sections */
   section {
     min-height: 100vh;
     display: flex;
@@ -93,19 +95,18 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 40px 20px;
   }
 
   h2 {
     font-size: 2.5rem;
-    color: #000;
+    margin-bottom: 15px;
   }
 
   footer {
     background: #f5f5f5;
     text-align: center;
     padding: 20px;
-    font-size: 0.9rem;
     color: #000;
   }
 </style>
@@ -123,7 +124,7 @@
   </ul>
 </nav>
 
-<!-- Hero Header -->
+<!-- Hero Section -->
 <header id="home">
   <h1>LIFE BEFORE WATER</h1>
   <p>Imagine a world where rivers run dry and oceans fade — “Life Before Water” reminds us how fragile life would be without it.</p>
