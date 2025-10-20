@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Life Before Water</title>
+
+<!-- ✅ Tab Title and Favicon -->
+<title>L.B.W</title>
+<link rel="icon" type="image/png" href="waterdroplet.png" />
+
 <style>
   html, body {
     margin: 0;
@@ -14,7 +18,7 @@
     scroll-behavior: smooth;
   }
 
-  /* STICKY NAVIGATION BAR */
+  /* ✅ BIGGER STICKY NAVIGATION BAR */
   nav {
     position: sticky;
     top: 0;
@@ -23,6 +27,7 @@
     backdrop-filter: blur(10px);
     z-index: 9999;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 25px 0; /* increased height */
   }
 
   nav ul {
@@ -30,16 +35,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 60px; /* more space between links */
     margin: 0;
-    padding: 15px 0;
+    padding: 0;
   }
 
   nav a {
     text-decoration: none;
     color: #000;
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-weight: 700;
+    font-size: 1.3rem; /* larger font */
+    letter-spacing: 1px;
     transition: color 0.3s;
   }
 
@@ -47,26 +53,27 @@
     color: #38bdf8;
   }
 
-  /* HERO SECTION */
+  /* ✅ HERO SECTION */
   header {
     position: relative;
     height: 100vh;
-    background-image: url('background.jpg'); /* ✅ Corrected file extension */
+    background-image: url('background.jpg'); /* make sure this file name matches */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertical center */
-    align-items: center; /* Horizontal center */
+    justify-content: center; /* vertical center */
+    align-items: center; /* horizontal center */
     text-align: center;
   }
 
+  /* Light overlay for readability */
   header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.3); /* soft overlay for readability */
+    background: rgba(255, 255, 255, 0.3);
     z-index: 0;
   }
 
@@ -88,6 +95,7 @@
     margin-top: 10px;
   }
 
+  /* ✅ SECTIONS */
   section {
     min-height: 100vh;
     display: flex;
@@ -113,7 +121,7 @@
 </head>
 <body>
 
-<!-- Sticky Navigation -->
+<!-- ✅ Sticky Navigation -->
 <nav>
   <ul>
     <li><a href="#home">Home</a></li>
@@ -124,7 +132,7 @@
   </ul>
 </nav>
 
-<!-- Hero Section -->
+<!-- ✅ Hero Section -->
 <header id="home">
   <h1>LIFE BEFORE WATER</h1>
   <p>Imagine a world where rivers run dry and oceans fade — “Life Before Water” reminds us how fragile life would be without it.</p>
