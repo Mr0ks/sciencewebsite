@@ -99,6 +99,7 @@
     height: 200vh;
   }
 
+  /* Hero section with image background */
   .sticky-hero {
     position: sticky;
     top: 0;
@@ -108,6 +109,21 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    background: url('background.png') center center / cover no-repeat;
+    background-attachment: fixed;
+  }
+
+  .sticky-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* subtle dark overlay */
+    z-index: 0;
+  }
+
+  .sticky-hero h1, .sticky-hero p {
+    position: relative;
+    z-index: 1;
   }
 
   .sticky-hero h1 {
