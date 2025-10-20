@@ -16,13 +16,14 @@
     scroll-behavior: smooth;
   }
 
-  /* ✅ LIQUID GLASS STICKY NAVIGATION BAR */
+  /* ✅ LIQUID GLASS STICKY NAV */
   nav {
-    position: sticky;
+    position: fixed; /* fixed instead of sticky */
     top: 0;
+    left: 0;
     width: 100%;
-    height: 90px; /* thicker bar */
-    background: rgba(255, 255, 255, 0.25); /* translucent glass */
+    height: 90px; /* thicker header */
+    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -54,7 +55,7 @@
     color: #38bdf8;
   }
 
-  /* ✅ HERO SECTION WITH IMAGE FADE INTO WHITE */
+  /* ✅ HERO SECTION under header */
   header {
     position: relative;
     height: 100vh;
@@ -68,7 +69,7 @@
     overflow: hidden;
   }
 
-  /* Fade effect at the bottom of background */
+  /* fade from image to white */
   header::after {
     content: "";
     position: absolute;
@@ -121,7 +122,7 @@
 </head>
 <body>
 
-<!-- ✅ Sticky Navigation -->
+<!-- ✅ Fixed glass nav -->
 <nav>
   <ul>
     <li><a href="#home">Home</a></li>
@@ -132,7 +133,7 @@
   </ul>
 </nav>
 
-<!-- ✅ Hero Section -->
+<!-- ✅ Hero now sits *under* the header -->
 <header id="home">
   <h1>LIFE BEFORE WATER</h1>
   <p>Imagine a world where rivers run dry and oceans fade — “Life Before Water” reminds us how fragile life would be without it.</p>
