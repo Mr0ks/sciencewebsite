@@ -12,26 +12,14 @@
     padding: 0;
     scroll-behavior: smooth;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #000;
-    color: #fff;
+    background: #fff; /* White background */
+    color: #000; /* Black text for contrast */
     overflow-x: hidden;
   }
 
-  /* Animated gradient background */
+  /* Remove gradient animation */
   body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 200%; height: 200%;
-    background: linear-gradient(45deg, #0ff, #38bdf8, #a855f7, #ec4899, #f59e0b);
-    background-size: 400% 400%;
-    z-index: -2;
-    animation: move 18s infinite alternate ease-in-out;
-  }
-
-  @keyframes move {
-    0% { transform: translate(-20%, -20%); }
-    100% { transform: translate(20%, 20%); }
+    content: none;
   }
 
   /* Floating particles canvas */
@@ -51,10 +39,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     z-index: 9999;
     box-sizing: border-box;
+    color: #000;
   }
 
   .logo {
@@ -73,7 +62,7 @@
 
   nav a {
     text-decoration: none;
-    color: #fff;
+    color: #000;
     position: relative;
     transition: 0.3s;
   }
@@ -110,35 +99,21 @@
     align-items: center;
     text-align: center;
     background: url('background.png') center center / cover no-repeat;
-    background-attachment: fixed;
-  }
-
-  .sticky-hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4); /* subtle dark overlay */
-    z-index: 0;
-  }
-
-  .sticky-hero h1, .sticky-hero p {
-    position: relative;
-    z-index: 1;
   }
 
   .sticky-hero h1 {
     font-size: clamp(3rem, 14vw, 10rem);
     font-weight: 900;
-    background: linear-gradient(90deg, #38bdf8, #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0,0,0,0.6);
     transition: transform 0.2s, opacity 0.2s;
   }
 
   .sticky-hero p {
     font-size: 1.3rem;
     max-width: 700px;
-    color: #e5e5e5;
+    color: #f0f0f0;
+    text-shadow: 0 0 10px rgba(0,0,0,0.6);
   }
 
   /* Other sections */
@@ -152,25 +127,18 @@
     padding: 0 20px;
   }
 
-  #about { background: rgba(0,0,0,0.5); }
-  #challenges { background: rgba(15,20,30,0.5); }
-  #solutions { background: rgba(20,10,30,0.5); }
-  #resources { background: rgba(10,10,20,0.6); }
-
   h2 {
     font-size: 2.5rem;
-    background: linear-gradient(90deg, #38bdf8, #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #000;
   }
 
   footer {
-    background: rgba(0,0,0,0.8);
+    background: #f5f5f5;
     text-align: center;
     padding: 20px;
     font-size: 0.9rem;
+    color: #000;
   }
-
 </style>
 </head>
 <body>
@@ -248,14 +216,14 @@ let particles=[];
 function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
 window.addEventListener('resize',resize);resize();
 
-for(let i=0;i<80;i++){
+for(let i=0;i<60;i++){
   particles.push({
     x:Math.random()*innerWidth,
     y:Math.random()*innerHeight,
     r:Math.random()*2+1,
     dx:(Math.random()-0.5)*0.6,
     dy:(Math.random()-0.5)*0.6,
-    color:`hsl(${Math.random()*360},100%,70%)`
+    color:`rgba(0,0,0,0.15)`
   });
 }
 
