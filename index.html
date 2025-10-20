@@ -18,11 +18,11 @@
 
   /* ✅ LIQUID GLASS STICKY NAV */
   nav {
-    position: fixed; /* fixed instead of sticky */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 90px; /* thicker header */
+    height: 90px;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
@@ -55,7 +55,7 @@
     color: #38bdf8;
   }
 
-  /* ✅ HERO SECTION under header */
+  /* ✅ HERO SECTION WITH FADE INTO WHITE */
   header {
     position: relative;
     height: 100vh;
@@ -69,15 +69,21 @@
     overflow: hidden;
   }
 
-  /* fade from image to white */
+  /* ✅ Stronger fade effect */
   header::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 40%;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%);
+    height: 50%;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 30%,
+      rgba(255, 255, 255, 0.6) 60%,
+      #ffffff 100%
+    );
   }
 
   header h1, header p {
@@ -97,19 +103,36 @@
     margin-top: 10px;
   }
 
-  section {
+  /* ✅ SLIDE SECTIONS */
+  .slide {
     min-height: 100vh;
+    padding: 100px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px 20px;
   }
 
-  h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+  .slide h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #38bdf8;
+  }
+
+  .slide p, .slide ul {
+    font-size: 1.2rem;
+    max-width: 900px;
+    line-height: 1.7;
+  }
+
+  .slide ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .slide ul li {
+    margin-bottom: 12px;
   }
 
   footer {
@@ -122,38 +145,64 @@
 </head>
 <body>
 
-<!-- ✅ Fixed glass nav -->
+<!-- ✅ Fixed Navigation -->
 <nav>
   <ul>
     <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#challenges">Challenges</a></li>
-    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#facts">Facts</a></li>
     <li><a href="#resources">Resources</a></li>
   </ul>
 </nav>
 
-<!-- ✅ Hero now sits *under* the header -->
+<!-- ✅ Hero Section -->
 <header id="home">
   <h1>LIFE BEFORE WATER</h1>
   <p>Imagine a world where rivers run dry and oceans fade — “Life Before Water” reminds us how fragile life would be without it.</p>
 </header>
 
-<section id="about">
-  <h2>ABOUT</h2>
-  <p>Water is the foundation of all life. This project explores what the world would look like before water — barren, silent, and lifeless — to remind us to protect it today.</p>
+<!-- ✅ Slide 1 - Introduction -->
+<section class="slide" id="introduction">
+  <h2>Slide 1. Introduction</h2>
+  <p>
+    Welcome to our page about <strong>Life Below Water</strong>, one of the United Nations’ Sustainable Development Goals.
+    This goal focuses on protecting the ocean and the many forms of life it supports. In Australia, the ocean plays a vital role
+    in our environment, economy, and culture. From the Great Barrier Reef to our long coastlines, Australia is home to thousands
+    of unique marine species that depend on healthy oceans to survive.
+  </p>
+  <p>
+    Unfortunately, challenges like coral bleaching, pollution, overfishing, and climate change are putting great pressure on these ecosystems.
+    By learning more about these issues and taking action, we can all help make a difference. Through education, conservation, and sustainable choices,
+    Australians can work together to protect marine life and ensure our oceans remain clean, healthy, and thriving for future generations.
+  </p>
 </section>
 
-<section id="challenges">
-  <h2>CHALLENGES</h2>
-  <p>From pollution to scarcity, humanity faces an uphill battle ensuring access to clean water. Without urgent action, billions remain at risk.</p>
+<!-- ✅ Slide 2 - Goals -->
+<section class="slide" id="goals" style="background:#f9f9f9;">
+  <h2>Slide 2. Goals</h2>
+  <ul>
+    <li><strong>Raise Awareness:</strong> Educate Australians about the importance of protecting our oceans and marine life through informative articles, videos, and community projects.</li>
+    <li><strong>Reduce Pollution:</strong> Encourage action to cut down on plastic use, improve recycling habits, and prevent waste from entering our waterways and beaches.</li>
+    <li><strong>Support Marine Conservation:</strong> Promote and support local organizations working to protect coral reefs, sea turtles, and other marine species across Australia.</li>
+    <li><strong>Promote Sustainable Practices:</strong> Inspire individuals, schools, and businesses to make sustainable choices, such as responsible fishing and reduced carbon emissions.</li>
+    <li><strong>Engage Communities:</strong> Build a network of Australians who care about ocean health by hosting clean-up events, school programs, and online campaigns.</li>
+  </ul>
 </section>
 
-<section id="solutions">
-  <h2>SOLUTIONS</h2>
-  <p>Innovation, conservation, and awareness can restore balance. Nature-based solutions, smart water systems, and global cooperation are key.</p>
+<!-- ✅ Slide 3 - Facts -->
+<section class="slide" id="facts">
+  <h2>Slide 3. Facts</h2>
+  <ul>
+    <li>Some fish species, like orange roughy and southern bluefin tuna, are overfished in Australian waters, causing population declines faster than natural reproduction rates.</li>
+    <li>Overfishing disrupts the balance of marine ecosystems along Australia’s coastlines, reducing biodiversity and affecting other species that rely on healthy fish populations.</li>
+    <li>Plastic pollution is widespread in Australia’s oceans. In some areas, thousands of microplastics are found per square kilometer of water.</li>
+    <li>Chemicals and untreated wastewater enter the ocean through rivers, stormwater, and runoff — harming marine life and damaging coral reefs.</li>
+    <li>Sustainable fishing practices and reducing pollution are crucial to protect Australia’s oceans. These measures help maintain healthy ecosystems for future generations.</li>
+  </ul>
 </section>
 
+<!-- ✅ Existing Resources & Footer -->
 <section id="resources">
   <h2>RESOURCES</h2>
   <p>
