@@ -13,7 +13,7 @@
     scroll-behavior: smooth;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: #fff; /* White background */
-    color: #000; /* Black text for contrast */
+    color: #000; /* Black text */
     overflow-x: hidden;
   }
 
@@ -104,16 +104,18 @@
   .sticky-hero h1 {
     font-size: clamp(3rem, 14vw, 10rem);
     font-weight: 900;
-    color: #fff;
-    text-shadow: 0 0 20px rgba(0,0,0,0.6);
+    color: #000; /* Black text */
+    text-shadow: 0 0 10px rgba(255,255,255,0.4); /* Slight glow for contrast */
     transition: transform 0.2s, opacity 0.2s;
   }
 
   .sticky-hero p {
     font-size: 1.3rem;
     max-width: 700px;
-    color: #f0f0f0;
-    text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    color: #111;
+    background: rgba(255,255,255,0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
   }
 
   /* Other sections */
@@ -203,8 +205,8 @@ window.addEventListener("scroll", () => {
   const containerHeight = container.offsetHeight;
   const progress = Math.min(1, Math.max(0, (scrollY - containerTop) / (containerHeight - window.innerHeight)));
 
-  const scale = 1 - progress * 0.5; // Shrinks to 50%
-  const opacity = 1 - progress * 1.2; // fades out
+  const scale = 1 - progress * 0.5;
+  const opacity = 1 - progress * 1.2;
   hero.style.transform = `scale(${scale})`;
   hero.style.opacity = opacity;
 });
@@ -216,14 +218,14 @@ let particles=[];
 function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
 window.addEventListener('resize',resize);resize();
 
-for(let i=0;i<60;i++){
+for(let i=0;i<50;i++){
   particles.push({
     x:Math.random()*innerWidth,
     y:Math.random()*innerHeight,
     r:Math.random()*2+1,
     dx:(Math.random()-0.5)*0.6,
     dy:(Math.random()-0.5)*0.6,
-    color:`rgba(0,0,0,0.15)`
+    color:`rgba(0,0,0,0.1)`
   });
 }
 
