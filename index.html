@@ -8,7 +8,7 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-  @import url('https://fonts.cdnfonts.com/css/conture'); /* ✅ Conture font import */
+  @import url('https://fonts.cdnfonts.com/css/conture'); /* ✅ Conture font */
 
   html, body {
     margin: 0;
@@ -17,43 +17,14 @@
     background-color: #fdfdfd;
     color: #222;
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* ✅ Fix for sticky nav offset */
+    scroll-padding-top: 90px;
     overflow-x: hidden;
   }
 
-  /* ✅ INTRO FADE-IN ANIMATION */
-  #intro-overlay {
-    position: fixed;
-    inset: 0;
-    background: #fff;
-    z-index: 10000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeOut 2s ease 2.5s forwards;
-  }
-
-  #intro-overlay h1 {
-    font-family: 'Conture', 'Poppins', sans-serif;
-    font-size: 5rem;
-    color: #000;
-    opacity: 0;
-    animation: fadeInText 2s ease forwards;
-  }
-
-  @keyframes fadeInText {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  @keyframes fadeOut {
-    to { opacity: 0; visibility: hidden; }
-  }
-
-  /* ✅ Fade-in for entire content */
-  main {
-    opacity: 0;
-    animation: fadeInContent 2s ease 2.5s forwards;
+  /* ✅ Smooth fade-in animation for HERO text */
+  @keyframes fadeInHero {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes fadeInContent {
@@ -61,7 +32,7 @@
     to { opacity: 1; }
   }
 
-  /* ✅ LIQUID GLASS STICKY NAV */
+  /* ✅ Sticky Navigation Bar */
   nav {
     position: fixed;
     top: 0;
@@ -70,7 +41,6 @@
     height: 80px;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 9999;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -100,10 +70,11 @@
     color: #5aa7d6;
   }
 
-  /* ✅ HERO SECTION */
+  /* ✅ HERO SECTION (fills full screen) */
   header {
     position: relative;
-    height: 90vh;
+    height: 100vh;
+    width: 100%;
     background: url('background.jpg') center center / cover no-repeat fixed;
     display: flex;
     flex-direction: column;
@@ -118,8 +89,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.25);
-    mix-blend-mode: lighten;
+    background: rgba(255,255,255,0.2);
   }
 
   header h1 {
@@ -130,6 +100,8 @@
     font-weight: 900;
     color: #000;
     letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeInHero 2s ease forwards;
   }
 
   header p {
@@ -137,11 +109,13 @@
     z-index: 1;
     font-size: 1.3rem;
     max-width: 700px;
-    margin-top: 12px;
+    margin-top: 15px;
     color: #333;
+    opacity: 0;
+    animation: fadeInHero 2s ease 1s forwards;
   }
 
-  /* ✅ SLIDES BASE */
+  /* ✅ SLIDE BASE STYLE */
   .slide {
     min-height: 100vh;
     padding: 100px 60px;
@@ -152,10 +126,11 @@
 
   .slide h2 {
     font-family: 'Conture', 'Poppins', serif;
-    font-size: 3.2rem;
+    font-size: 3rem;
     margin-bottom: 30px;
-    color: #000; /* ✅ changed from purple to black */
+    color: #000;
     letter-spacing: 1px;
+    text-transform: uppercase;
   }
 
   .slide p, .slide ul {
@@ -187,7 +162,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #000;
     text-align: center;
     overflow: hidden;
   }
@@ -216,33 +190,35 @@
     background: #f9fbff;
     text-align: left;
     align-items: flex-start;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
   }
 
-  /* ✅ SLIDE 4 - RESOURCES */
+  /* ✅ SLIDE 4 (RESOURCES) */
   #resources {
-    text-align: center;
     background: #fafafa;
-    padding-top: 50px;
-    padding-bottom: 80px;
+    padding: 80px 20px 100px 20px;
+    text-align: center;
   }
 
   #resources h2 {
-    margin-bottom: 25px;
+    margin-bottom: 40px;
   }
 
   #resources p {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 600px;
   }
 
   #resources a {
     color: #5aa7d6;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   #resources a:hover {
@@ -266,85 +242,78 @@
 </head>
 <body>
 
-<!-- ✅ INTRO OVERLAY -->
-<div id="intro-overlay">
-  <h1>Life Before Water</h1>
-</div>
+<!-- ✅ NAV -->
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#facts">Facts</a></li>
+    <li><a href="#resources">Resources</a></li>
+  </ul>
+</nav>
 
-<main>
-  <!-- ✅ Sticky Nav -->
-  <nav>
+<!-- ✅ HERO -->
+<header id="home">
+  <h1>LIFE BEFORE WATER</h1>
+  <p>Imagine a world where rivers run dry and oceans fade — “Life Before Water” reminds us how fragile life would be without it.</p>
+</header>
+
+<!-- ✅ SLIDE 1 -->
+<section class="slide" id="introduction">
+  <h2>SLIDE 1: INTRODUCTION</h2>
+  <p>
+    Welcome to our page about <strong>Life Below Water</strong>, one of the United Nations’ Sustainable Development Goals.
+    This goal focuses on protecting the ocean and the many forms of life it supports. In Australia, the ocean plays a vital role
+    in our environment, economy, and culture.
+  </p>
+  <p>
+    Unfortunately, challenges like coral bleaching, pollution, overfishing, and climate change are putting great pressure on these ecosystems.
+    Through education, conservation, and sustainable choices, Australians can work together to protect marine life and ensure our oceans remain
+    clean, healthy, and thriving for future generations.
+  </p>
+</section>
+
+<!-- ✅ SLIDE 2 -->
+<section class="slide" id="goals">
+  <div class="goals-overlay">
+    <h2>SLIDE 2: GOALS</h2>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#goals">Goals</a></li>
-      <li><a href="#facts">Facts</a></li>
-      <li><a href="#resources">Resources</a></li>
+      <li><strong>Raise Awareness:</strong> Educate Australians about the importance of protecting our oceans and marine life.</li>
+      <li><strong>Reduce Pollution:</strong> Encourage action to cut down on plastic use and prevent waste from entering waterways.</li>
+      <li><strong>Support Marine Conservation:</strong> Promote organizations protecting coral reefs and sea life.</li>
+      <li><strong>Promote Sustainable Practices:</strong> Inspire responsible fishing and lower carbon emissions.</li>
+      <li><strong>Engage Communities:</strong> Host clean-up events, school programs, and campaigns.</li>
     </ul>
-  </nav>
+  </div>
+</section>
 
-  <!-- ✅ Hero -->
-  <header id="home">
-    <h1>LIFE BEFORE WATER</h1>
-    <p>Imagine a world where rivers run dry and oceans fade — “Life Before Water” reminds us how fragile life would be without it.</p>
-  </header>
+<!-- ✅ SLIDE 3 -->
+<section class="slide" id="facts">
+  <h2>SLIDE 3: FACTS</h2>
+  <ul>
+    <li>Some fish species in Australia, like orange roughy and southern bluefin tuna, are overfished.</li>
+    <li>Overfishing disrupts marine ecosystems and reduces biodiversity.</li>
+    <li>Plastic pollution is widespread, with thousands of microplastics per km² in some regions.</li>
+    <li>Chemicals and wastewater harm coral reefs and marine life.</li>
+    <li>Sustainable fishing and reduced pollution protect Australia’s oceans for the future.</li>
+  </ul>
+</section>
 
-  <!-- ✅ Slide 1 -->
-  <section class="slide" id="introduction">
-    <h2>Slide 1. Introduction</h2>
-    <p>
-      Welcome to our page about <strong>Life Below Water</strong>, one of the United Nations’ Sustainable Development Goals.
-      This goal focuses on protecting the ocean and the many forms of life it supports. In Australia, the ocean plays a vital role
-      in our environment, economy, and culture. From the Great Barrier Reef to our long coastlines, Australia is home to thousands
-      of unique marine species that depend on healthy oceans to survive.
-    </p>
-    <p>
-      Unfortunately, challenges like coral bleaching, pollution, overfishing, and climate change are putting great pressure on these ecosystems.
-      By learning more about these issues and taking action, we can all help make a difference. Through education, conservation, and sustainable choices,
-      Australians can work together to protect marine life and ensure our oceans remain clean, healthy, and thriving for future generations.
-    </p>
-  </section>
+<!-- ✅ SLIDE 4 -->
+<section class="slide" id="resources">
+  <h2>SLIDE 4: RESOURCES</h2>
+  <p>
+    <a href="https://sdgs.un.org/goals/goal6" target="_blank">UN SDG 6</a>
+    <a href="https://www.unicef.org/wash" target="_blank">UNICEF WASH</a>
+    <a href="https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health" target="_blank">WHO Water</a>
+  </p>
+</section>
 
-  <!-- ✅ Slide 2 - Goals (Mountain Background) -->
-  <section class="slide" id="goals">
-    <div class="goals-overlay">
-      <h2>Slide 2. Goals</h2>
-      <ul>
-        <li><strong>Raise Awareness:</strong> Educate Australians about the importance of protecting our oceans and marine life.</li>
-        <li><strong>Reduce Pollution:</strong> Encourage action to cut down on plastic use and prevent waste from entering waterways.</li>
-        <li><strong>Support Marine Conservation:</strong> Promote organizations protecting coral reefs and sea life.</li>
-        <li><strong>Promote Sustainable Practices:</strong> Inspire responsible fishing and lower carbon emissions.</li>
-        <li><strong>Engage Communities:</strong> Host clean-up events, school programs, and campaigns.</li>
-      </ul>
-    </div>
-  </section>
+<footer>
+  © 2025 Life Before Water — Designed to Inspire Awareness and Action
+  <div class="credits">Made by Victor Arric and Harrison</div>
+</footer>
 
-  <!-- ✅ Slide 3 -->
-  <section class="slide" id="facts">
-    <h2>Slide 3. Facts</h2>
-    <ul>
-      <li>Some fish species in Australia, like orange roughy and southern bluefin tuna, are overfished.</li>
-      <li>Overfishing disrupts marine ecosystems and reduces biodiversity.</li>
-      <li>Plastic pollution is widespread, with thousands of microplastics per km² in some regions.</li>
-      <li>Chemicals and wastewater harm coral reefs and marine life.</li>
-      <li>Sustainable fishing and reduced pollution protect Australia’s oceans for the future.</li>
-    </ul>
-  </section>
-
-  <!-- ✅ Slide 4 -->
-  <section class="slide" id="resources">
-    <h2>Slide 4. Resources</h2>
-    <p>
-      <a href="https://sdgs.un.org/goals/goal6" target="_blank">UN SDG 6</a>
-      <a href="https://www.unicef.org/wash" target="_blank">UNICEF WASH</a>
-      <a href="https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health" target="_blank">WHO Water</a>
-    </p>
-  </section>
-
-  <footer>
-    © 2025 Life Before Water — Designed to Inspire Awareness and Action
-    <div class="credits">Made by Victor Arric and Harrison</div>
-  </footer>
-</main>
 </body>
 </html>
