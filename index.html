@@ -8,7 +8,7 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-  @import url('https://fonts.cdnfonts.com/css/conture'); /* ✅ Conture font */
+  @import url('https://fonts.cdnfonts.com/css/conture'); /* Conture font */
 
   html, body {
     margin: 0;
@@ -17,11 +17,11 @@
     background-color: #fdfdfd;
     color: #222;
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* ✅ Fix offset for navbar */
+    scroll-padding-top: 0; /* ✅ ensures full scroll to bottom */
     overflow-x: hidden;
   }
 
-  /* ✅ Animation keyframes */
+  /* ✅ Animations */
   @keyframes fadeInHero {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
@@ -32,7 +32,7 @@
     to { opacity: 1; }
   }
 
-  /* ✅ NAV */
+  /* ✅ Navbar */
   nav {
     position: fixed;
     top: 0;
@@ -72,7 +72,7 @@
     color: #5aa7d6;
   }
 
-  /* ✅ HERO SECTION */
+  /* ✅ Hero section */
   header {
     position: relative;
     height: 100vh;
@@ -117,12 +117,13 @@
     animation: fadeInHero 2s ease 2s forwards;
   }
 
+  /* ✅ Rest of website fade-in after intro */
   main {
     opacity: 0;
-    animation: fadeInRest 2s ease 3s forwards; /* ✅ Fade in rest after hero */
+    animation: fadeInRest 2s ease 3s forwards;
   }
 
-  /* ✅ SLIDE BASE STYLE */
+  /* ✅ Slides */
   .slide {
     min-height: 100vh;
     padding: 100px 60px;
@@ -155,14 +156,14 @@
     margin-bottom: 12px;
   }
 
-  /* ✅ SLIDE 1 */
+  /* ✅ Slide 1 */
   #introduction {
     align-items: flex-end;
     text-align: right;
     background: #fdfaff;
   }
 
-  /* ✅ SLIDE 2 */
+  /* ✅ Slide 2 */
   #goals {
     position: relative;
     background: url('background1.jpg') center center / cover no-repeat fixed;
@@ -192,17 +193,17 @@
     backdrop-filter: blur(10px);
   }
 
-  /* ✅ SLIDE 3 */
+  /* ✅ Slide 3 */
   #facts {
     background: #f9fbff;
     text-align: left;
     align-items: flex-start;
   }
 
-  /* ✅ SLIDE 4 (RESOURCES) */
+  /* ✅ Slide 4 */
   #resources {
     background: #fafafa;
-    padding: 60px 20px 80px 20px; /* tighter top padding */
+    padding: 60px 20px 80px 20px;
     text-align: center;
   }
 
@@ -243,11 +244,6 @@
     margin-top: 10px;
     font-size: 0.9rem;
     color: #777;
-  }
-
-  /* ✅ Make Resources snap higher */
-  #resources {
-    scroll-margin-top: 70px;
   }
 </style>
 </head>
