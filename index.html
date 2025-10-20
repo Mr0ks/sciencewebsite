@@ -152,7 +152,7 @@
     margin-bottom: 12px;
   }
 
-  /* ✅ Alignment per slide */
+  /* ✅ Slide 1 & 2 Layouts */
   #introduction {
     align-items: flex-end;
     text-align: right;
@@ -165,15 +165,67 @@
     background: #f9fbff;
   }
 
-  /* ✅ FIXED SLIDE 3 CENTER ISSUE */
+  /* ✅ Slide 3 - Parallax with Fade */
   #facts {
+    position: relative;
+    min-height: 100vh;
+    background: url('background1.jpg') center center / cover no-repeat fixed;
+    display: flex;
     justify-content: center;
     align-items: center;
+    color: #222;
     text-align: center;
-    background: #fffafc;
-    padding: 120px 20px;
+    overflow: hidden;
   }
 
+  #facts::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(2px);
+  }
+
+  #facts::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 15%,
+      rgba(255, 255, 255, 0) 85%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    z-index: 1;
+  }
+
+  .facts-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 80px 40px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 20px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .facts-overlay h2 {
+    font-family: 'Onyx', 'Poppins', serif;
+    font-size: 3rem;
+    color: #a38bfc;
+    margin-bottom: 25px;
+  }
+
+  .facts-overlay ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  /* ✅ Slide 4 */
   #resources {
     justify-content: flex-end;
     text-align: center;
@@ -236,16 +288,18 @@
   </ul>
 </section>
 
-<!-- ✅ Slide 3 - Facts (FIXED) -->
+<!-- ✅ Slide 3 - Facts (Parallax) -->
 <section class="slide" id="facts">
-  <h2>Slide 3. Facts</h2>
-  <ul>
-    <li>Some fish species, like orange roughy and southern bluefin tuna, are overfished in Australian waters, causing population declines faster than natural reproduction rates.</li>
-    <li>Overfishing disrupts the balance of marine ecosystems along Australia’s coastlines, reducing biodiversity and affecting other species that rely on healthy fish populations.</li>
-    <li>Plastic pollution is widespread in Australia’s oceans. In some areas, thousands of microplastics are found per square kilometer of water.</li>
-    <li>Chemicals and untreated wastewater enter the ocean through rivers, stormwater, and runoff — harming marine life and damaging coral reefs.</li>
-    <li>Sustainable fishing practices and reducing pollution are crucial to protect Australia’s oceans. These measures help maintain healthy ecosystems for future generations.</li>
-  </ul>
+  <div class="facts-overlay">
+    <h2>Slide 3. Facts</h2>
+    <ul>
+      <li>Some fish species, like orange roughy and southern bluefin tuna, are overfished in Australian waters, causing population declines faster than natural reproduction rates.</li>
+      <li>Overfishing disrupts the balance of marine ecosystems along Australia’s coastlines, reducing biodiversity and affecting other species that rely on healthy fish populations.</li>
+      <li>Plastic pollution is widespread in Australia’s oceans. In some areas, thousands of microplastics are found per square kilometer of water.</li>
+      <li>Chemicals and untreated wastewater enter the ocean through rivers, stormwater, and runoff — harming marine life and damaging coral reefs.</li>
+      <li>Sustainable fishing practices and reducing pollution are crucial to protect Australia’s oceans. These measures help maintain healthy ecosystems for future generations.</li>
+    </ul>
+  </div>
 </section>
 
 <!-- ✅ Slide 4 - Resources -->
