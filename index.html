@@ -16,6 +16,7 @@
     background-color: #fdfdfd;
     color: #222;
     scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* ✅ Fix for sticky nav overlap */
   }
 
   /* ✅ LIQUID GLASS STICKY NAV */
@@ -133,7 +134,7 @@
     font-family: 'Onyx', 'Poppins', serif;
     font-size: 3.2rem;
     margin-bottom: 30px;
-    color: #a38bfc; /* pastel lavender */
+    color: #a38bfc;
     letter-spacing: 1px;
   }
 
@@ -152,21 +153,15 @@
     margin-bottom: 12px;
   }
 
-  /* ✅ Slide 1 & 2 Layouts */
+  /* ✅ Slide 1 */
   #introduction {
     align-items: flex-end;
     text-align: right;
     background: #fdfaff;
   }
 
+  /* ✅ Slide 2 (now with parallax mountain background) */
   #goals {
-    align-items: flex-start;
-    text-align: left;
-    background: #f9fbff;
-  }
-
-  /* ✅ Slide 3 - Parallax with Fade */
-  #facts {
     position: relative;
     min-height: 100vh;
     background: url('background1.jpg') center center / cover no-repeat fixed;
@@ -178,7 +173,7 @@
     overflow: hidden;
   }
 
-  #facts::before {
+  #goals::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -186,7 +181,7 @@
     backdrop-filter: blur(2px);
   }
 
-  #facts::after {
+  #goals::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -200,7 +195,7 @@
     z-index: 1;
   }
 
-  .facts-overlay {
+  .goals-overlay {
     position: relative;
     z-index: 2;
     max-width: 900px;
@@ -211,18 +206,11 @@
     backdrop-filter: blur(10px);
   }
 
-  .facts-overlay h2 {
-    font-family: 'Onyx', 'Poppins', serif;
-    font-size: 3rem;
-    color: #a38bfc;
-    margin-bottom: 25px;
-  }
-
-  .facts-overlay ul {
-    list-style: none;
-    padding: 0;
-    font-size: 1.1rem;
-    line-height: 1.8;
+  /* ✅ Slide 3 */
+  #facts {
+    background: #f9fbff;
+    text-align: left;
+    align-items: flex-start;
   }
 
   /* ✅ Slide 4 */
@@ -230,7 +218,7 @@
     justify-content: flex-end;
     text-align: center;
     background: #fafafa;
-    padding-bottom: 80px;
+    padding-bottom: 120px;
   }
 
   footer {
@@ -238,6 +226,13 @@
     text-align: center;
     padding: 25px;
     color: #333;
+    font-size: 0.95rem;
+  }
+
+  .credits {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #777;
   }
 </style>
 </head>
@@ -276,43 +271,46 @@
   </p>
 </section>
 
-<!-- ✅ Slide 2 - Goals -->
+<!-- ✅ Slide 2 - Goals (Now has mountain parallax) -->
 <section class="slide" id="goals">
-  <h2>Slide 2. Goals</h2>
-  <ul>
-    <li><strong>Raise Awareness:</strong> Educate Australians about the importance of protecting our oceans and marine life through informative articles, videos, and community projects.</li>
-    <li><strong>Reduce Pollution:</strong> Encourage action to cut down on plastic use, improve recycling habits, and prevent waste from entering our waterways and beaches.</li>
-    <li><strong>Support Marine Conservation:</strong> Promote and support local organizations working to protect coral reefs, sea turtles, and other marine species across Australia.</li>
-    <li><strong>Promote Sustainable Practices:</strong> Inspire individuals, schools, and businesses to make sustainable choices, such as responsible fishing and reduced carbon emissions.</li>
-    <li><strong>Engage Communities:</strong> Build a network of Australians who care about ocean health by hosting clean-up events, school programs, and online campaigns.</li>
-  </ul>
-</section>
-
-<!-- ✅ Slide 3 - Facts (Parallax) -->
-<section class="slide" id="facts">
-  <div class="facts-overlay">
-    <h2>Slide 3. Facts</h2>
+  <div class="goals-overlay">
+    <h2>Slide 2. Goals</h2>
     <ul>
-      <li>Some fish species, like orange roughy and southern bluefin tuna, are overfished in Australian waters, causing population declines faster than natural reproduction rates.</li>
-      <li>Overfishing disrupts the balance of marine ecosystems along Australia’s coastlines, reducing biodiversity and affecting other species that rely on healthy fish populations.</li>
-      <li>Plastic pollution is widespread in Australia’s oceans. In some areas, thousands of microplastics are found per square kilometer of water.</li>
-      <li>Chemicals and untreated wastewater enter the ocean through rivers, stormwater, and runoff — harming marine life and damaging coral reefs.</li>
-      <li>Sustainable fishing practices and reducing pollution are crucial to protect Australia’s oceans. These measures help maintain healthy ecosystems for future generations.</li>
+      <li><strong>Raise Awareness:</strong> Educate Australians about the importance of protecting our oceans and marine life through informative articles, videos, and community projects.</li>
+      <li><strong>Reduce Pollution:</strong> Encourage action to cut down on plastic use, improve recycling habits, and prevent waste from entering our waterways and beaches.</li>
+      <li><strong>Support Marine Conservation:</strong> Promote and support local organizations working to protect coral reefs, sea turtles, and other marine species across Australia.</li>
+      <li><strong>Promote Sustainable Practices:</strong> Inspire individuals, schools, and businesses to make sustainable choices, such as responsible fishing and reduced carbon emissions.</li>
+      <li><strong>Engage Communities:</strong> Build a network of Australians who care about ocean health by hosting clean-up events, school programs, and online campaigns.</li>
     </ul>
   </div>
+</section>
+
+<!-- ✅ Slide 3 - Facts -->
+<section class="slide" id="facts">
+  <h2>Slide 3. Facts</h2>
+  <ul>
+    <li>Some fish species, like orange roughy and southern bluefin tuna, are overfished in Australian waters, causing population declines faster than natural reproduction rates.</li>
+    <li>Overfishing disrupts the balance of marine ecosystems along Australia’s coastlines, reducing biodiversity and affecting other species that rely on healthy fish populations.</li>
+    <li>Plastic pollution is widespread in Australia’s oceans. In some areas, thousands of microplastics are found per square kilometer of water.</li>
+    <li>Chemicals and untreated wastewater enter the ocean through rivers, stormwater, and runoff — harming marine life and damaging coral reefs.</li>
+    <li>Sustainable fishing practices and reducing pollution are crucial to protect Australia’s oceans. These measures help maintain healthy ecosystems for future generations.</li>
+  </ul>
 </section>
 
 <!-- ✅ Slide 4 - Resources -->
 <section class="slide" id="resources">
   <h2>Slide 4. Resources</h2>
   <p>
-    <a href="https://sdgs.un.org/goals/goal6" target="_blank" style="color:#8dc5e8;">UN SDG 6</a> ·
-    <a href="https://www.unicef.org/wash" target="_blank" style="color:#8dc5e8;">UNICEF WASH</a> ·
-    <a href="https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health" target="_blank" style="color:#8dc5e8;">WHO Water</a>
+    <a href="https://sdgs.un.org/goals/goal6" target="_blank">UN SDG 6</a> ·
+    <a href="https://www.unicef.org/wash" target="_blank">UNICEF WASH</a> ·
+    <a href="https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health" target="_blank">WHO Water</a>
   </p>
 </section>
 
-<footer>© 2025 Life Before Water — Designed to Inspire Awareness and Action</footer>
+<footer>
+  © 2025 Life Before Water — Designed to Inspire Awareness and Action
+  <div class="credits">Made by Victor Arric and Harrison</div>
+</footer>
 
 </body>
 </html>
