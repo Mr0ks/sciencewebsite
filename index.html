@@ -14,7 +14,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins', Arial, sans-serif;
-    background-color: #fdfdfd;
+    background-color: #000; /* ✅ makes top/bottom background black */
     color: #222;
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -23,6 +23,7 @@
   /* ✅ Invert entire page colors */
   html {
     filter: invert(1) hue-rotate(180deg);
+    background-color: #000; /* ✅ prevents white flash when over-scrolling */
   }
 
   @keyframes fadeInHero {
@@ -309,7 +310,7 @@
 
   <footer>
     © 2025 Life Below Water — Designed to Inspire Awareness and Action
-    <div class="credits">Made by Victor Aaric and Harrison</div>
+    <div class="credits">Made by Victor, Aaaric and Harrison</div>
   </footer>
 </main>
 
