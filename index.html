@@ -36,20 +36,18 @@
     to { opacity: 1; }
   }
 
-  /* ✅ Sliding banner */
+  /* ✅ Sliding banner (now inline between hero and intro) */
   .donation-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     background: #000;
     color: #fff;
     overflow: hidden;
     white-space: nowrap;
-    z-index: 2000;
     height: 40px;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    border-top: 2px solid #00bfff;
     border-bottom: 2px solid #00bfff;
   }
 
@@ -69,7 +67,7 @@
 
   nav {
     position: fixed;
-    top: 40px; /* moves below banner */
+    top: 0;
     left: 0;
     width: 100%;
     height: 80px;
@@ -277,13 +275,6 @@
 
 <body>
 
-<!-- ✅ Sliding donation banner -->
-<div class="donation-banner">
-  <div class="scroll-text">
-    DONATE TO SAVE NOW - MADE BY AARIC, VICTOR, HARRISON AND MICHEAL - DONATE TO SAVE NOW - MADE BY AARIC, VICTOR, HARRISON AND MICHEAL - DONATE TO SAVE NOW
-  </div>
-</div>
-
 <nav>
   <ul>
     <li><a href="#home">Home</a></li>
@@ -298,6 +289,13 @@
   <h1>LIFE BELOW WATER</h1>
   <p>Imagine a world where rivers run dry and oceans fade — “Life Below Water” reminds us how fragile life would be without it.</p>
 </header>
+
+<!-- ✅ Banner now between hero and Slide 1 -->
+<div class="donation-banner">
+  <div class="scroll-text">
+    DONATE TO SAVE NOW - MADE BY AARIC, VICTOR, HARRISON AND MICHEAL - DONATE TO SAVE NOW - MADE BY AARIC, VICTOR, HARRISON AND MICHEAL - DONATE TO SAVE NOW
+  </div>
+</div>
 
 <main>
   <section class="slide" id="introduction">
@@ -348,8 +346,8 @@
   </section>
 
   <footer>
-    ok
-    <div class="credits">Made by Victor Aaric, Harrison, and Micheal</div>
+    © 2025 Life Below Water
+    <div class="credits">Made by Aaric, Victor, Harrison, and Micheal</div>
   </footer>
 </main>
 </body>
